@@ -1,0 +1,23 @@
+document.addEventListener('DOMContentLoaded',function(){'use strict';const contactForm=document.getElementById('contactForm');if(!contactForm)return;const fullName=document.getElementById('fullName');const email=document.getElementById('email');const phone=document.getElementById('phone');const service=document.getElementById('service');const budget=document.getElementById('budget');const message=document.getElementById('message');const terms=document.getElementById('terms');const submitBtn=contactForm.querySelector('button[type="submit"]');const resetBtn=contactForm.querySelector('button[type="reset"]');let isSubmitting=false;function validateEmail(email){const re=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;return re.test(email)}
+function validatePhone(phone){const re=/^[\d\s\-\+\(\)]+$/;return!phone||re.test(phone)}
+function showError(input,message){const formGroup=input.closest('.form-group');const errorMessage=formGroup.querySelector('.error-message');input.classList.add('error');if(errorMessage){errorMessage.textContent=message;errorMessage.classList.add('show')}}
+function clearError(input){const formGroup=input.closest('.form-group');const errorMessage=formGroup.querySelector('.error-message');input.classList.remove('error');if(errorMessage){errorMessage.classList.remove('show')}}
+function validateField(input){clearError(input);const value=input.value.trim();switch(input.id){case'fullName':if(!value){showError(input,'Full name is required');return false}
+if(value.length<3){showError(input,'Name must be at least 3 characters');return false}
+break;case'email':if(!value){showError(input,'Email is required');return false}
+if(!validateEmail(value)){showError(input,'Please enter a valid email address');return false}
+break;case'phone':if(value&&!validatePhone(value)){showError(input,'Please enter a valid phone number');return false}
+break;case'service':if(!value||value===''){showError(input,'Please select a service');return false}
+break;case'budget':if(!value||value===''){showError(input,'Please select a budget range');return false}
+break;case'message':if(!value){showError(input,'Project description is required');return false}
+if(value.length<20){showError(input,'Description must be at least 20 characters');return false}
+if(value.length>1000){showError(input,'Description must not exceed 1000 characters');return false}
+break}
+return true}
+[fullName,email,phone,service,budget,message].forEach(input=>{if(!input)return;input.addEventListener('blur',function(){validateField(this)});input.addEventListener('input',function(){if(this.classList.contains('error')){clearError(this)}})});if(terms){terms.addEventListener('change',function(){const formGroup=this.closest('.checkbox-group');const errorMessage=formGroup.querySelector('.error-message');if(this.checked&&errorMessage){errorMessage.classList.remove('show')}})}
+contactForm.addEventListener('submit',async function(e){e.preventDefault();if(isSubmitting)return;let isValid=true;[fullName,email,service,budget,message].forEach(input=>{if(input&&!validateField(input)){isValid=false}});if(phone&&phone.value&&!validateField(phone)){isValid=false}
+if(terms&&!terms.checked){const formGroup=terms.closest('.checkbox-group');const errorMessage=formGroup.querySelector('.error-message');if(errorMessage){errorMessage.textContent='You must accept the terms and conditions';errorMessage.classList.add('show')}
+isValid=false}
+if(!isValid){return}
+isSubmitting=true;submitBtn.disabled=true;const originalText=submitBtn.textContent;submitBtn.innerHTML='<span class="loading"></span> Sending...';await new Promise(resolve=>setTimeout(resolve,1500));const formData={fullName:fullName.value.trim(),email:email.value.trim(),phone:phone?phone.value.trim():'',company:document.getElementById('company')?document.getElementById('company').value.trim():'',service:service.value,budget:budget.value,message:message.value.trim(),timestamp:new Date().toISOString()};console.log('Form submitted:',formData);localStorage.setItem('lastSubmission',JSON.stringify(formData));const successMessage=document.querySelector('.success-message');if(successMessage){successMessage.classList.add('show');successMessage.scrollIntoView({behavior:'smooth',block:'center'})}
+contactForm.reset();submitBtn.disabled=false;submitBtn.textContent=originalText;isSubmitting=false;setTimeout(()=>{if(successMessage){successMessage.classList.remove('show')}},5000)});if(resetBtn){resetBtn.addEventListener('click',function(){[fullName,email,phone,service,budget,message].forEach(input=>{if(input){clearError(input)}});const successMessage=document.querySelector('.success-message');if(successMessage){successMessage.classList.remove('show')}})}});

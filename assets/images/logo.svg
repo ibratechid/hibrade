@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="50" viewBox="0 0 180 50">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0066CC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF9500;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect x="5" y="10" width="30" height="30" rx="5" fill="url(#logoGradient)"/>
+  <path d="M15 20 L25 20 M15 25 L25 25 M15 30 L25 30 M20 20 L20 30" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <text x="45" y="33" font-family="Poppins, sans-serif" font-size="24" font-weight="700" fill="#1A202C">HIBRADE</text>
+</svg>
