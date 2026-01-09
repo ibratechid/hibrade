@@ -1,0 +1,46 @@
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Node modules (if added in the future)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build output (if added in the future)
+dist/
+build/
+*.min.js
+*.min.css
+
+# Backup files
+*.bak
+*.backup
+*.tmp
+
+# Cache
+.cache/
+*.cache
+
+# Temporary files
+temp/
+tmp/
