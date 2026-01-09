@@ -1,213 +1,208 @@
 # HIBRADE - Digital Solutions Landing Page
 
-A professional, modern, and responsive landing page for HIBRADE - Digital Solutions, showcasing web development, SEO, and digital marketing services.
+A comprehensive, professional landing page for HIBRADE - Digital Solutions, featuring pricing and portfolio sections with a modern, responsive design.
 
-## 📋 Project Overview
+## 🌐 Live Preview
 
-HIBRADE is a digital solutions agency founded in 2020, specializing in web development, web management, SEO, and social media management. This landing page is designed to convert visitors into clients through strategic CTAs, modern design, and clear value propositions.
+Open `index.html` in your web browser to view the landing page.
+
+## 📁 Project Structure
+
+```
+hibrade/
+├── index.html                     # Main landing page
+├── pricing-web-development.html   # Web Development pricing page
+├── pricing-web-management.html    # Web Management pricing page
+├── pricing-seo.html               # SEO pricing page
+├── pricing-social-media.html      # Social Media Management pricing page
+├── style.css                      # Main stylesheet
+├── script.js                      # JavaScript functionality
+├── README.md                      # Project documentation
+└── assets/
+    ├── images/                    # Image assets
+    └── icons/                     # Icon assets
+```
 
 ## ✨ Features
 
-- **Responsive Design**: Fully responsive layout that works perfectly on desktop, tablet, and mobile devices
-- **Modern UI/UX**: Clean, professional design with smooth transitions and hover effects
-- **SEO Optimized**: Semantic HTML5, meta tags, proper heading hierarchy, and Schema.org markup
-- **Fast Loading**: Optimized code with no external dependencies or heavy frameworks
-- **Interactive Elements**: Smooth scroll navigation, mobile hamburger menu, form validation
-- **Accessibility**: WCAG compliant with proper semantic markup and ARIA labels
-- **Conversion Focused**: Strategic CTA placement throughout the page
+### Main Landing Page (index.html)
+- **Header & Navigation**: Fixed header with smooth scroll navigation, mobile hamburger menu
+- **Hero Section**: Eye-catching headline with CTA buttons
+- **About Section**: Company information, team members, and statistics
+- **Services Section**: 4 service cards (Web Development, Web Management, SEO, Social Media)
+- **Pricing Section**: Overview cards linking to detailed pricing pages
+- **Featured Projects Carousel**: 10 project cards with status badges (Completed/On Process)
+- **CTA Section**: Call-to-action with contact button
+- **Contact Section**: Contact form with validation, contact info, and social links
+- **Footer**: 4-column footer with About, Quick Links, Services, and Contact info
 
-## 🏗️ Project Structure
+### Pricing Pages
+Each service has a dedicated pricing page with:
+- 3 pricing tiers (1M, 2M, 3M IDR)
+- Feature lists for each tier
+- Back navigation to main pricing
+- Responsive design
 
-```
-hibrade-landing-page/
-│
-├── index.html          # Main landing page with semantic HTML5 structure
-├── style.css           # Complete styling with responsive design
-├── script.js           # JavaScript for interactivity and animations
-├── README.md           # This file
-└── .gitignore          # Git ignore file
-```
-
-## 🎨 Design Specifications
+## 🎨 Design System
 
 ### Color Palette
-- **Primary Blue**: `#0066CC` - Used for CTAs, icons, and accents
-- **Dark Blue**: `#0052A3` - Hover states and gradients
-- **Light Blue**: `#E8F0FF` - Backgrounds and highlights
-- **White**: `#FFFFFF` - Primary background
-- **Text**: `#2C3E50` - Main text color
-- **Text Light**: `#6B7280` - Secondary text color
+- **Primary**: #0066CC (Blue)
+- **Primary Dark**: #0052A3
+- **Accent**: #E8F0FF (Light Blue)
+- **Text**: #1A1A1A (Dark Gray)
+- **Background**: #FAFAFA
+- **Completed Status**: #10B981 (Green)
+- **On Process Status**: #F59E0B (Orange/Yellow)
 
 ### Typography
-- System fonts for optimal performance:
-  - `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif`
-- Font sizes use `clamp()` for responsive scaling
-- Clear hierarchy with proper font weights
+- **Font**: Inter (Google Fonts)
+- **Weights**: 400, 500, 600, 700
 
-## 📄 Page Sections
-
-1. **Header**: Fixed navigation with logo, menu items, and CTA button
-2. **Hero**: Eye-catching headline with stats and dual CTAs
-3. **About**: Company information, founding year (2020), and features
-4. **Services**: 4 service cards showcasing offerings
-5. **Team**: Display of 3 team members with roles
-6. **Projects**: Portfolio/case studies section
-7. **CTA Section**: Strong call-to-action before footer
-8. **Contact**: Contact information and functional form
-9. **Footer**: Links, contact info, and copyright
+### Responsive Breakpoints
+- **Mobile**: 320px - 480px
+- **Tablet**: 481px - 768px
+- **Desktop**: 769px+
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 - A modern web browser (Chrome, Firefox, Safari, Edge)
-- A local web server (optional, but recommended)
+- No build tools required - pure HTML/CSS/JS
 
 ### Installation
+1. Clone or download the project files
+2. Open `index.html` in your browser
+3. Navigate through the page using the navigation menu
 
-1. Clone or download the repository
-2. Open `index.html` in a web browser
-3. Or serve it with a local server:
+## 📱 Responsive Behavior
 
-```bash
-# Using Python 3
-python -m http.server 8000
+### Mobile (320px - 480px)
+- Services grid: 2x2
+- Pricing grid: 2x2
+- Footer: Stacked (1 column)
+- Carousel: Full width with swipe
 
-# Using Node.js (http-server)
-npx http-server
+### Tablet (481px - 768px)
+- Services grid: 2x2
+- Pricing grid: 2x2
+- Footer: 2 columns
+- Carousel: 2 cards visible
 
-# Using PHP
-php -S localhost:8000
-```
+### Desktop (769px+)
+- Services grid: 4 columns
+- Pricing grid: 4 columns
+- Footer: 4 columns
+- Carousel: 3 cards visible
 
-### Customization
+## 🛠 Technical Features
 
-#### Changing Colors
-Edit the CSS variables in `style.css`:
+### HTML5
+- Semantic HTML structure
+- SEO-optimized meta tags
+- Schema.org markup for Organization
+- ARIA labels for accessibility
+- Open Graph tags for social sharing
 
-```css
-:root {
-    --primary-color: #0066CC;
-    --primary-dark: #0052A3;
-    --primary-light: #E8F0FF;
-    /* ... other variables */
-}
-```
+### CSS3
+- CSS Variables for theming
+- CSS Grid for layouts
+- Flexbox for alignment
+- CSS custom properties
+- Smooth transitions and animations
+- Mobile-first approach
 
-#### Updating Content
-All text content is in `index.html`. Search for specific text to update:
-- Company name: `HIBRADE`
-- Team members: Search for names in the team section
-- Services: Edit service cards in the services section
-- Contact info: Update in contact section and footer
+### JavaScript
+- Hamburger menu toggle with animation
+- Smooth scroll navigation
+- Project carousel with:
+  - Previous/Next navigation
+  - Dot indicators
+  - Touch/swipe support
+  - Auto-rotation (6 second interval)
+  - Pause on hover
+- Form validation
+- Active navigation highlighting
+- Scroll reveal animations
+- Parallax effect on hero
 
-#### Adding Images
-Replace the SVG placeholders with actual images:
-1. Create an `assets/images/` directory
-2. Add your images
-3. Replace `<svg>` elements with `<img>` tags:
-   ```html
-   <img src="assets/images/your-image.jpg" alt="Description">
-   ```
-
-#### Form Integration
-The contact form currently validates and simulates submission. To integrate with a backend:
-
-1. Edit the form submission handler in `script.js`
-2. Replace the simulation with actual API calls:
-
-```javascript
-// Example with Fetch API
-fetch('/api/contact', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-        name: form.name.value,
-        email: form.email.value,
-        service: form.service.value,
-        message: form.message.value
-    })
-})
-.then(response => response.json())
-.then(data => {
-    // Handle success
-});
-```
-
-## 🎯 SEO Features
-
-- **Meta Tags**: Title, description, keywords, and Open Graph tags
-- **Semantic HTML**: Proper use of `<header>`, `<nav>`, `<section>`, `<footer>`, etc.
-- **Heading Hierarchy**: Logical H1 → H2 → H3 structure
-- **Schema.org**: LocalBusiness markup for search engines
-- **Mobile-Friendly**: Responsive design and viewport meta tag
-- **Fast Loading**: Minimal external dependencies
-- **Alt Text**: All images include descriptive alt attributes
-
-## 📱 Responsive Breakpoints
-
-- **Desktop**: 1200px and up
-- **Tablet**: 768px - 1199px
-- **Mobile**: 320px - 767px
-
-## ♿ Accessibility
-
-- Semantic HTML5 structure
-- ARIA labels for interactive elements
-- Keyboard navigation support
-- Focus states for all interactive elements
-- Proper color contrast ratios
-- Screen reader friendly
-- Supports reduced motion preferences
-
-## 🔧 Browser Support
+## 📊 Browser Support
 
 - Chrome (latest)
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
 
-## 📊 Performance
+## 🎯 SEO Optimization
 
-- **Lightweight**: No external frameworks or libraries
-- **Optimized CSS**: Efficient selectors and minimal bloat
-- **Lazy Loading Ready**: Image lazy loading implemented
-- **Minification Ready**: Code is structured for easy minification
+The landing page includes:
+- Meta title and description
+- Keywords meta tag
+- Open Graph tags
+- Twitter Card tags
+- Canonical URL
+- Schema.org Organization markup
+- Semantic HTML5
+- Proper heading hierarchy (H1, H2, H3)
+- Alt text for images
 
-## 🤝 Team
+## ♿ Accessibility
 
-- **Agustina** - UI/UX Designer
-- **Dimas Aji** - Web Developer
-- **Vetty N.** - Data Analyst
+- ARIA labels on interactive elements
+- Keyboard navigation support
+- Color contrast ratios (WCAG AA)
+- Focus indicators
+- Semantic HTML structure
+- Skip links (via smooth scroll)
 
-## 📞 Contact
+## 📦 Performance
 
-- Email: contact@hibrade.com
-- Phone: +1 (555) 123-4567
-- Website: hibrade.com
+- Minimal external dependencies (Google Fonts only)
+- CSS animations with hardware acceleration
+- Passive event listeners
+- Efficient DOM manipulation
+- No jQuery or heavy frameworks
+
+## 🔧 Customization
+
+### Colors
+Edit CSS variables in `:root`:
+```css
+:root {
+    --primary: #0066CC;
+    --primary-dark: #0052A3;
+    --accent: #E8F0FF;
+    /* ... */
+}
+```
+
+### Services
+Modify the service cards in `index.html`:
+```html
+<a href="pricing-[service].html" class="service-card" data-service="[service]">
+    <!-- Service content -->
+</a>
+```
+
+### Projects
+Add/remove project cards in the carousel track in `index.html`.
 
 ## 📄 License
 
-This project is created for HIBRADE - Digital Solutions. All rights reserved.
+This project is for demonstration purposes. Feel free to use and modify for your own projects.
 
-## 🔮 Future Enhancements
+## 🤝 Contributing
 
-- [ ] Add actual team member photos
-- [ ] Integrate real portfolio images
-- [ ] Add blog section
-- [ ] Implement client testimonials
-- [ ] Add newsletter signup
-- [ ] Integrate analytics (Google Analytics, etc.)
-- [ ] Add multi-language support
-- [ ] Implement dark mode toggle
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
-## 📝 Credits
+## 📞 Support
 
-Designed and developed for HIBRADE - Digital Solutions.
+For questions or support, please contact:
+- **Email**: info@hibrade.com
+- **Phone**: +62 812 3456 7890
 
 ---
 
-**Built with ❤️ for HIBRADE - Digital Solutions**
-*Transforming Digital Experiences Since 2020*
+Built with ❤️ by HIBRADE Team
