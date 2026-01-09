@@ -1,14 +1,23 @@
-# IDE and Editor files
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor Files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-.DS_Store
-
-# OS files
-.DS_Store
-Thumbs.db
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
 
 # Logs
 *.log
@@ -16,31 +25,37 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Environment files
-.env
-.env.local
-.env.*.local
+# Temporary Files
+*.tmp
+*.temp
+.cache/
+.temp/
 
-# Node modules (if added in the future)
-node_modules/
-package-lock.json
-yarn.lock
-
-# Build output (if added in the future)
+# Build Output (if any)
 dist/
 build/
-*.min.js
-*.min.css
+*.min.js.map
+*.min.css.map
 
-# Backup files
+# Backup Files
 *.bak
 *.backup
-*.tmp
+*_backup
+*.old
 
-# Cache
-.cache/
-*.cache
+# Environment Files
+.env
+.env.local
+.env.production
 
-# Temporary files
-temp/
-tmp/
+# Dependencies (if any)
+node_modules/
+vendor/
+
+# IDE Specific
+.phpintel/
+
+# Custom
+test/
+testing/
+_drafts/
