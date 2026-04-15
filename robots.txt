@@ -1,0 +1,25 @@
+# HIBRADE Security - Robots.txt
+# Block all web crawlers and search engine bots for security
+
+User-agent: *
+Disallow: /
+
+# Allow only specific bots (uncomment if needed)
+# User-agent: Googlebot
+# Allow: /
+
+# Block specific malicious bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemap (commented out for security)
+# Sitemap: https://hibrade.com/sitemap.xml

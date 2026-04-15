@@ -1,0 +1,19 @@
+.DS_Store
+Thumbs.db
+
+# Local editor
+.vscode/
+
+# Logs and temp
+security.log
+*.log
+*.tmp
+*.bak
+*.orig
+
+# Security/test runner files
+run-security-tests.php
+test-security.php
+
+# Vercel cache
+.vercel/

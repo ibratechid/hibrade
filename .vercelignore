@@ -1,0 +1,10 @@
+# Exclude PHP backend and local artifacts from Vercel deployment
+*.php
+security.log
+run-security-tests.php
+test-security.php
+*.bak
+*.orig
+.DS_Store
+.vscode/
+.htaccess
