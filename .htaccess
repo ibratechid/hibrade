@@ -1,0 +1,88 @@
+# HIBRADE Security Configuration
+# Apache Security Headers and Protections
+
+# Security Headers
+<IfModule mod_headers.c>
+    # Content Security Policy
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://wa.me; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me;"
+
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Prevent clickjacking
+    Header always set X-Frame-Options "DENY"
+
+    # XSS Protection
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Permissions Policy
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
+
+    # HSTS (uncomment when HTTPS is enabled)
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
+
+# Prevent access to sensitive files
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak|sql|conf)$">
+    Require all denied
+</FilesMatch>
+
+# Prevent access to backup files
+<FilesMatch "\.(old|orig|original|bak|backup|tmp|temp)$">
+    Require all denied
+</FilesMatch>
+
+# Rate limiting for contact form (requires mod_ratelimit)
+<IfModule mod_ratelimit.c>
+    <Location "/index.html">
+        SetOutputFilter RATE_LIMIT
+        SetEnv rate-limit 10
+    </Location>
+</IfModule>
+
+# Block common exploit attempts
+RewriteEngine On
+
+# Block SQL injection attempts
+RewriteCond %{QUERY_STRING} (\'|%27|union|select|insert|cast|declare|drop|update|md5|benchmark|script|javascript|vbscript|onload|onerror) [NC]
+RewriteRule .* - [F,L]
+
+# Block XSS attempts
+RewriteCond %{QUERY_STRING} (<|%3C|script|javascript|vbscript|onload|onerror) [NC]
+RewriteRule .* - [F,L]
+
+# Block directory traversal
+RewriteCond %{REQUEST_URI} \.\./ [NC]
+RewriteRule .* - [F,L]
+
+# Block access to sensitive files
+RewriteRule ^(.*)\.env$ - [F,L]
+RewriteRule ^(.*)composer\.json$ - [F,L]
+RewriteRule ^(.*)package\.json$ - [F,L]
+RewriteRule ^(.*)\.git - [F,L]
+
+# Force HTTPS (uncomment when SSL is available)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove server signature
+# ServerSignature and ServerTokens are not allowed in .htaccess on this Apache setup.
+# Configure those in the main Apache httpd.conf if needed.
+
+# Security for PHP (if PHP is used)
+<IfModule mod_php.c>
+    php_flag display_errors off
+    php_flag log_errors on
+    php_value error_log /var/log/php_error.log
+    php_flag register_globals off
+    php_flag magic_quotes_gpc off
+    php_flag allow_url_fopen off
+    php_flag allow_url_include off
+    php_flag expose_php off
+</IfModule>
